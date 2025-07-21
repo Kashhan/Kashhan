@@ -1,0 +1,115 @@
+{
+  "name": "YouTube-Bot Automation",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -352,
+        -16
+      ],
+      "id": "c0711451-c935-4bc7-9073-91412f7b896c",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2a2e4caa-ab99-436e-9af8-1f787b2ad06f",
+              "name": "videoId",
+              "value": "=5P1enVyy29k",
+              "type": "string"
+            },
+            {
+              "id": "a7b03b67-7e4a-44e2-a17d-a2381802e2b6",
+              "name": "commentText",
+              "value": "=Nice Cooking",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -144,
+        -16
+      ],
+      "id": "0e5cc675-97a8-490c-b9ef-db272e57d644",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"snippet\": {\n    \"videoId\": \"5P1enVyy29k\",\n    \"topLevelComment\": {\n      \"snippet\": {\n        \"textOriginal\": \"Nice Cooking\"\n      }\n    }\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        64,
+        -16
+      ],
+      "id": "b2de9ffa-abc2-40aa-9d0e-e536893cbec2",
+      "name": "HTTP Request",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "7xThHfwfRnvQa5PX",
+          "name": "Unnamed credential"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d0a39a30-d11a-4441-a454-1cee94b2f5ce",
+  "meta": {
+    "instanceId": "664e67b75f9fe174e3e36ec396bb8395d4d8c60a6f0e66b6a8d18990c9fea991"
+  },
+  "id": "LCXhwMhT6XN2IUFK",
+  "tags": []
+}
