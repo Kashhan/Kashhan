@@ -25,7 +25,7 @@
             {
               "id": "a7b03b67-7e4a-44e2-a17d-a2381802e2b6",
               "name": "commentText",
-              "value": "=Nice Cooking",
+              "value": "Nice Cooking",
               "type": "string"
             }
           ]
@@ -58,7 +58,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"snippet\": {\n    \"videoId\": \"5P1enVyy29k\",\n    \"topLevelComment\": {\n      \"snippet\": {\n        \"textOriginal\": \"Nice Cooking\"\n      }\n    }\n  }\n}\n",
+        "jsonBody": "{\n \"snippet\": {\n \"videoId\": \"5P1enVyy29k\",\n \"topLevelComment\": {\n \"snippet\": {\n  \"textOriginal\": \"Nice Cooking\"\n }\n }\n }\n}\n",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -71,7 +71,7 @@
       "name": "HTTP Request",
       "credentials": {
         "oAuth2Api": {
-          "id": "7xThHfwfRnvQa5PX",
+          "id": "....",
           "name": "Unnamed credential"
         }
       }
@@ -108,7 +108,7 @@
   },
   "versionId": "d0a39a30-d11a-4441-a454-1cee94b2f5ce",
   "meta": {
-    "instanceId": "664e67b75f9fe174e3e36ec396bb8395d4d8c60a6f0e66b6a8d18990c9fea991"
+    "instanceId": "....."
   },
   "id": "LCXhwMhT6XN2IUFK",
   "tags": []
